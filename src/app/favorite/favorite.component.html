@@ -1,0 +1,8 @@
+<div class="container">
+    <button mat-icon-button [ngClass]="{
+        'Fav-active': isActive,
+        'Fav': !isActive
+    }" (click)="onClick()">
+    <mat-icon>favorite</mat-icon>
+    </button>
+</div>

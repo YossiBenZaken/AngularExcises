@@ -1,0 +1,10 @@
+.container{
+    padding-left: 10px;
+    padding-top: 10px;
+}
+.Fav-active{
+    color: deeppink;
+}
+.Fav{
+    color: gray;
+}
