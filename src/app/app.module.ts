@@ -8,21 +8,32 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatTabsModule} from '@angular/material/tabs';
 import { AuthorsComponent } from './authors/authors.component';
 import { FavoriteComponent } from './favorite/favorite.component';
-import {MatButtonModule} from '@angular/material/button'; 
+import {MatButtonModule} from '@angular/material/button';
+import { BankDepositComponent } from './Bank/bank-deposit/bank-deposit.component';
+import { BankWithdrawComponent } from './Bank/bank-withdraw/bank-withdraw.component'; 
+import { HttpClientModule } from '@angular/common/http';
+import { BankComponent } from './Bank/bank/bank.component';
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
     LikeComponent,
     AuthorsComponent,
-    FavoriteComponent
+    FavoriteComponent,
+    BankDepositComponent,
+    BankWithdrawComponent,
+    BankComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatTabsModule,
+    FormsModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
