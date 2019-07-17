@@ -6,17 +6,18 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class BankService {
+  baseUrl = 'https://bank-yossi.firebaseio.com/accounts.json';
   constructor(private http: HttpClient) { }
   createAndStoreAccount(fullName:string,amount:number){
     const BankData: Bank = {fullName: fullName,amount: amount};
-    this.http.post<{ fullname: string }>('https://bank-yossi.firebaseio.com/accounts.json',
+    this.http.post<{ fullname: string }>(this.baseUrl,
       BankData
     ).subscribe(res => {
       console.log(res);
     });
   }
   fetchAccounts(){
-    return this.http.get<{[key:string]: Bank}>('https://bank-yossi.firebaseio.com/accounts.json')
+    return this.http.get<{[key:string]: Bank}>(this.baseUrl)
       .pipe(map(res => {
         const accountArray:Bank[] = [];
         for (const key in res) {
@@ -28,9 +29,9 @@ export class BankService {
       }));
   }
   deleteAccounts(){
-    return this.http.delete('https://bank-yossi.firebaseio.com/accounts.json');
+    return this.http.delete(this.baseUrl);
   }
-  depositToAccount(bank: Bank){
+  ChangeMoneytoPerson(bank: Bank){
     return this.http.put<Bank>('https://bank-yossi.firebaseio.com/accounts/'+bank.id+'.json',bank);
   }
 }

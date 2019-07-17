@@ -38,7 +38,7 @@ export class BankComponent implements OnInit {
     let i=0;
     while(i<money--)
       this.loadedAccount[index].amount++;
-    this.service.depositToAccount(this.loadedAccount[index]).subscribe(()=>{
+    this.service.ChangeMoneytoPerson(this.loadedAccount[index]).subscribe(()=>{
       money=0;
     });
   }
@@ -46,7 +46,7 @@ export class BankComponent implements OnInit {
     let i=0;
     while(i<money--)
       this.loadedAccount[index].amount--;
-    this.service.depositToAccount(this.loadedAccount[index]).subscribe(()=>{
+    this.service.ChangeMoneytoPerson(this.loadedAccount[index]).subscribe(()=>{
       money=0;
     });
   }
