@@ -1,6 +1,7 @@
 <div class="container">
-    <span class="btn" [ngClass]="{ 'btn-primary': isLiked, 'btn-secondary': !isLiked}" (click)="likeP()">
-        <mat-icon>thumb_up_alt</mat-icon>
-    </span>
+    <button mat-icon-button (click)="likeP()">
+        <mat-icon *ngIf="isLiked" color="primary">thumb_up_alt</mat-icon>
+        <mat-icon *ngIf="!isLiked">thumb_up_alt</mat-icon>
+    </button>
     <p style="padding-left: 100px">{{like}}</p>
 </div>
