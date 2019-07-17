@@ -39,7 +39,6 @@ export class BankComponent implements OnInit {
     while(i<money--)
       this.loadedAccount[index].amount++;
     this.service.ChangeMoneytoPerson(this.loadedAccount[index]).subscribe(()=>{
-      money=0;
     });
   }
   Withdraw(money:number,index:number){
@@ -47,7 +46,6 @@ export class BankComponent implements OnInit {
     while(i<money--)
       this.loadedAccount[index].amount--;
     this.service.ChangeMoneytoPerson(this.loadedAccount[index]).subscribe(()=>{
-      money=0;
     });
   }
 }
