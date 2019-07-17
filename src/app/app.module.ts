@@ -9,20 +9,16 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { AuthorsComponent } from './authors/authors.component';
 import { FavoriteComponent } from './favorite/favorite.component';
 import {MatButtonModule} from '@angular/material/button';
-import { BankDepositComponent } from './Bank/bank-deposit/bank-deposit.component';
-import { BankWithdrawComponent } from './Bank/bank-withdraw/bank-withdraw.component'; 
 import { HttpClientModule } from '@angular/common/http';
 import { BankComponent } from './Bank/bank/bank.component';
 import { FormsModule } from '@angular/forms';
-
+import {MatInputModule} from '@angular/material/input'; 
 @NgModule({
   declarations: [
     AppComponent,
     LikeComponent,
     AuthorsComponent,
     FavoriteComponent,
-    BankDepositComponent,
-    BankWithdrawComponent,
     BankComponent
   ],
   imports: [
@@ -33,6 +29,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     MatButtonModule,
     MatIconModule,
+    MatInputModule,
     HttpClientModule
   ],
   providers: [],

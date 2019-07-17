@@ -25,7 +25,7 @@
             />
           </div>
           <button
-            class="btn btn-primary"
+          mat-raised-button color="accent"
             type="submit"
             [disabled]="!postForm.valid"
           >
@@ -37,12 +37,12 @@
     <hr />
     <div class="row">
       <div class="col-xs-12 col-md-6 col-md-offset-3">
-        <button class="btn btn-primary" (click)="onFetchAccounts()">
-          Fetch Posts
+        <button mat-stroked-button color="primary" (click)="onFetchAccounts()">
+          Fetch Accounts
         </button>
         |
         <button
-          class="btn btn-danger"
+        mat-stroked-button color="warn"
           [disabled]="loadedAccount.length < 1"
           (click)="onClearAccounts()"
         >
@@ -55,11 +55,13 @@
         <p *ngIf="loadedAccount.length < 1 && !isFetching">No accounts available!</p>
         <ul class="list-group" *ngIf="loadedAccount.length >= 1 && !isFetching">
             <li class="list-group-item" *ngFor="let a of loadedAccount; index as i">
-                <h5>{{ a.fullName }}</h5>
+                <h5><mat-icon style="color:brown;">account_box</mat-icon>{{ a.fullName }}</h5>
                 <p>{{ a.amount }}</p>
-                <input [(ngModel)]="money" type="number" #Money="ngModel">
-                <button class="btn btn-primary" (click)="Deposit(money,i)">Deposit</button>|
-                <button class="btn btn-primary" (click)="Withdraw(money,i)">Withdraw</button>
+                <mat-form-field class="example-full-width">
+                  <input matInput [(ngModel)]="money" placeholder="How much?" value="0" #Money="ngModel">
+                </mat-form-field>
+                <button mat-icon-button (click)="Deposit(money,i)"><mat-icon style="color:red">add</mat-icon></button>
+                <button mat-icon-button (click)="Withdraw(money,i)"><mat-icon style="color:red">remove</mat-icon></button>
             </li>
         </ul>
         <p *ngIf="isFetching">Loading...</p>
